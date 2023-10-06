@@ -23,6 +23,7 @@ $SUDO cp -r /tmp/switch_hifi/switch_hifi $INSTALL_DIR
 cd $INSTALL_DIR
 $SUDO cp switch_hifi.service /lib/systemd/system/switch_hifi.service
 $SUDO chmod -R +x $INSTALL_DIR
+$SUDO useradd switch_hifi -G gpio -M -r
 $SUDO systemctl daemon-reload
 $SUDO systemctl enable switch_hifi.service
 $SUDO systemctl start switch_hifi
