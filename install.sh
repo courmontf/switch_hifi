@@ -11,7 +11,7 @@ if ! which sudo >/dev/null; then
 	fi
 fi
 
-$SUDO git clone $REPO $INSTALL_DIR
+$SUDO git clone $GIT_REPOSITORY $INSTALL_DIR
 $SUDO python -m venv $INSTALL_DIR/venv
 cd $INSTALL_DIR/switch_hifi
 source venv/bin/activate
