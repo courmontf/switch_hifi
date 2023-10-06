@@ -1,5 +1,5 @@
 [Unit]
-Description=Raspotify (Spotify Connect Client)
+Description=Switch Hifi
 Documentation=https://github.com/courmontf/switch_hifi
 Wants=network.target
 After=network.target
