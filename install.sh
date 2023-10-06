@@ -1,5 +1,7 @@
+#!/bin/bash
 GIT_REPOSITORY="https://github.com/courmontf/switch_hifi.git"
 INSTALL_DIR="/opt/switch_hifi"
+SUDO="sudo"
 
 if ! which sudo >/dev/null; then
 	SUDO=""
@@ -11,12 +13,14 @@ if ! which sudo >/dev/null; then
 	fi
 fi
 
-cd /opt
-$SUDO git clone $GIT_REPOSITORY
-$SUDO python -m venv $INSTALL_DIR/venv
-cd $INSTALL_DIR/switch_hifi
+git clone $GIT_REPOSITORY /tmp/switch_hifi
+cd /tmp/switch_hifi
+cd switch_hifi
+python -m venv venv
 source venv/bin/activate
-$SUDO pip install uvicorn[standard] fastapi RPi.GPIO
+pip install uvicorn[standard] fastapi RPi.GPIO
+$SUDO cp -r /tmp/switch_hifi/switch_hifi /opt
 $SUDO cp switch_hifi.service /lib/systemd/system/switch_hifi.service
 $SUDO systemctl daemon-reload
 $SUDO systemctl enable switch_hifi.service
+$sudo rm -r /tmp/switch_hifi
