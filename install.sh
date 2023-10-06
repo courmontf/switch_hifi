@@ -12,7 +12,7 @@ if ! which sudo >/dev/null; then
 	fi
 fi
 
-$SUDO sudo
+$SUDO su
 git clone $REPO $INSTALL_DIR
 python -m venv $INSTALL_DIR/venv
 cd $INSTALL_DIR
