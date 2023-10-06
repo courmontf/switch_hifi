@@ -18,9 +18,9 @@ cd /tmp/switch_hifi
 cd switch_hifi
 python -m venv venv
 source venv/bin/activate
-pip install uvicorn[standard] fastapi RPi.GPIO
+pip install wheel uvicorn[standard] fastapi RPi.GPIO
 $SUDO cp -r /tmp/switch_hifi/switch_hifi /opt
 $SUDO cp switch_hifi.service /lib/systemd/system/switch_hifi.service
 $SUDO systemctl daemon-reload
 $SUDO systemctl enable switch_hifi.service
-$sudo rm -r /tmp/switch_hifi
+$SUDO rm -r /tmp/switch_hifi

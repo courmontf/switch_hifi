@@ -59,7 +59,7 @@ SystemCallErrorNumber=EPERM
 Environment=TMPDIR=%t/%N
 EnvironmentFile=-%E/%N/conf
 
-ExecStart=/opt/switch_hifi/switch_hifi/start_service.sh
+ExecStart=/opt/switch_hifi/start_service.sh
 
 [Install]
 WantedBy=multi-user.target
