@@ -15,7 +15,7 @@ fi
 $SUDO su
 git clone $REPO $INSTALL_DIR
 python -m venv $INSTALL_DIR/venv
-cd $INSTALL_DIR
+cd $INSTALL_DIR/switch_hifi
 source venv/bin/activate
 pip install uvicorn[standard] fastapi RPi.GPIO
 cp switch_hifi.service /lib/systemd/system/switch_hifi.service
