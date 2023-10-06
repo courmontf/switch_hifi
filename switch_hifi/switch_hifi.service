@@ -9,3 +9,6 @@ User=switch_hifi
 SupplementaryGroups=gpio
 WorkingDirectory=/opt/switch_hifi
 ExecStart=/opt/switch_hifi/start_service.sh
+
+[Install]
+WantedBy=multi-user.target
