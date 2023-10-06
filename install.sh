@@ -14,11 +14,13 @@ if ! which sudo >/dev/null; then
 fi
 
 git clone $GIT_REPOSITORY /tmp/switch_hifi
-$SUDO cp -r /tmp/switch_hifi/switch_hifi $INSTALL_DIR
-cd /opt/switch_hifi
-$SUDO python -m venv venv
+cd /tmp/switch_hifi/switch_hifi
+python -m venv venv
 source venv/bin/activate
-$SUDO pip install uvicorn[standard] fastapi RPi.GPIO
+pip install uvicorn[standard] fastapi RPi.GPIO
+$SUDO chown -R root:root .
+$SUDO cp -r /tmp/switch_hifi/switch_hifi $INSTALL_DIR
+cd $INSTALL_DIR
 $SUDO cp switch_hifi.service /lib/systemd/system/switch_hifi.service
 $SUDO chmod -R +x $INSTALL_DIR
 $SUDO systemctl daemon-reload
